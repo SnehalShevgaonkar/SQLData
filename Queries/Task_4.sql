@@ -75,6 +75,8 @@ set city=case
 when city in('Dlhi','Delhi ncr','New delhi') then 'Delhi'
 when city in('Hydbd','Hydrabad') then 'Hyderabad'
 when city in('Bangalore') then 'Bengaluru'
+WHEN TRIM(city) = 'Bangalore' THEN 'Bengaluru'
+When Trim(city)='chennai' then 'Chennai'
 else  city 
 end;
 
