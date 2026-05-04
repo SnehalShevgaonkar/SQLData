@@ -39,6 +39,11 @@ update clean_salaries
 set salary_date=
 concat(RIGHT(salary_date,4),'-',substring(salary_date,4,2),'-',LEFT(salary_date,2))
 where salary_date like '__-__-____';   
+-- step 2:Remove invalid date for clean_salaries
+update clean_salaries
+set salary_date=null
+where
+cast(right(salary_date,2)As unsigned)>31;
 
 select distinct salary_date
 from clean_salaries
