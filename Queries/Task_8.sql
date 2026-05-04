@@ -19,6 +19,7 @@ describe clean_employees;
 
   -- Converting data type of clean_salaries
     alter table clean_salaries
+    modify salary_id int,
     modify emp_id int, 
     modify salary decimal(10,2),
     modify salary_date date,

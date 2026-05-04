@@ -45,6 +45,11 @@ set salary_date=null
 where
 cast(right(salary_date,2)As unsigned)>31;
 
+--
+UPDATE clean_salaries
+SET salary_date = STR_TO_DATE(salary_date, '%Y-%d-%m')
+WHERE SUBSTRING_INDEX(SUBSTRING_INDEX(salary_date, '-', 2), '-', -1) > 12;
+
 select distinct salary_date
 from clean_salaries
 
