@@ -19,7 +19,7 @@ left join clean_departments d
 on e.dept_id=d.dept_id
 where d.dept_id IS NULL;
 
--- 4.Find employees who earn how much
+-- 4.Find e8mployees who earn how much
 select e.emp_id,e.emp_name,s.salary
 from clean_employees e  
 join clean_salaries s
