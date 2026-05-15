@@ -45,3 +45,29 @@ SELECT
 FROM RankedSalaries
 WHERE salary_rank <= 3;*/
 
+-- 4.Find lowest salary employee 1 each departmenet
+select e.emp_id,e.dept_id,s.salary,
+rank() over (partition by e.dept_id order by s.salary desc)as salary_rank
+from clean_employees e
+join clean_salaries s
+on e.emp_id=e.dept_id
+where salary_rank=1
+
+/*
+SELECT 
+    emp_id,
+    dept_id,
+    salary,
+    salary_rank
+FROM (
+    SELECT 
+        e.emp_id,
+        e.dept_id, 
+        s.salary,
+        RANK() OVER (PARTITION BY e.dept_id ORDER BY s.salary DESC) AS salary_rank
+    FROM clean_employees e
+    JOIN clean_salaries s ON e.emp_id = s.emp_id
+) ranked_data
+WHERE salary_rank = 1;
+*/
+
