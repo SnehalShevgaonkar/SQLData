@@ -36,3 +36,34 @@ select * from cleaned_orders;
 select * from cleaned_payment;
 
 select * from cleaned_products;
+
+
+-- 2. Find duplicate Records ffrom cleaned_customers
+select customer_id,customerr_name,city, count(*) as duplicate_count
+from cleaned_customers
+group by customer_id,customerr_name,city
+having count(*) > 1;
+
+-- cleaned_ Orders
+select order_id,count(*) as duplicate_count
+from cleaned_orders
+group by order_id
+having count(*) > 1;
+
+-- cleaned_payment
+    select payment_id,count(*) as duplicate_count   
+    from cleaned_payment
+    group by payment_id
+    having count(*) > 1;
+
+   -- cleaned_order_details
+    select order_detail_id,count(*) as duplicate_count   
+    from cleaned_order_details
+    group by order_detail_id
+    having count(*) > 1; 
+
+    --- cleaned_products
+    select product_id,count(*) as duplicate_count       
+    from cleaned_products   
+    group by product_id
+    having count(*) > 1;
