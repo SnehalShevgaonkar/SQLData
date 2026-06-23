@@ -67,3 +67,21 @@ having count(*) > 1;
     from cleaned_products   
     group by product_id
     having count(*) > 1;
+
+   
+-- Step 1: Rename the column and change its type to DATE
+ALTER TABLE cleaned_products
+    CHANGE COLUMN price price_date DATE;
+
+-- Step 2: Update the rows that have default/zero dates
+-- Note: MySQL DATE types store zeros as '0000-00-00', not 0.0
+UPDATE cleaned_products 
+SET price_date = '2023-04-07' 
+WHERE price_date = '0000-00-00' OR price_date IS NULL;
+
+-- Step 3: View your updated data
+SELECT * FROM cleaned_products
+WHERE price= '2023-04-07';
+
+
+

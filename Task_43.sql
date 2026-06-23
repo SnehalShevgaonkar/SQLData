@@ -96,4 +96,34 @@ cast(right(payment_date,2)As unsigned)>31;
 select distinct payment_date
 from cleaned_payment
 
---
+
+
+-- CHANGING DATA TYPES
+   -- Converting data type of cleaned_customers
+    alter table cleaned_customers
+    modify customer_id int, 
+    modify customerr_name varchar(25), 
+    modify city  varchar(25),
+    modify signup_date date;   
+
+    --- Converting data type of cleaned_orders
+    alter table cleaned_orders
+    modify order_id int, 
+    modify customer_id int,
+    modify order_date date;
+  
+  -- Converting data type of cleaned_products
+    alter table cleaned_products
+    modify product_id int, 
+    modify product_name varchar(25),
+    modify price  date;
+
+    --- Converting data type of cleaned_payment
+    alter table cleaned_payment
+        modify payment_id int,
+        modify order_id int,
+        modify payment_amount decimal(10,2),
+        modify payment_date date;
+    --- Converting data type of cleaned_order_details
+    alter table cleaned_order_details  
+      
