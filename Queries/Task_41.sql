@@ -63,6 +63,9 @@ as
 select *
 from row_products;
 
+drop table row_products;
+drop table cleaned_products;
+
 
 select * from cleaned_customers;
 
