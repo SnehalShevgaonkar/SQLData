@@ -41,8 +41,8 @@ These datasets cover employee, sales, payment, and operational records and inclu
 The database used in the project is:
 
 ```sql
-CREATE DATABASE SqlChallange;
-USE SqlChallange;
+CREATE DATABASE SqlChallenge;
+USE SqlChallenge;
 ```
 
 After creating the database, import the CSV files into MySQL or a compatible SQL client and build the required tables for analysis.
